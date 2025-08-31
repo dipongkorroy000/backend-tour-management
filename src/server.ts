@@ -3,6 +3,7 @@ import { Server } from "http";
 import mongoose from "mongoose";
 import app from "./app";
 import { envVars } from "./app/config/env";
+import { seedSuperAdmin } from "./app/utils/seedSuperAdmin";
 
 let server: Server;
 
@@ -19,7 +20,11 @@ const startServer = async () => {
     console.log(error);
   }
 };
-startServer();
+
+(async () => {
+  await startServer();
+  await seedSuperAdmin();
+})();
 
 /**
  *  3 type error ----
@@ -40,6 +45,7 @@ process.on("unhandledRejection", (error) => {
 
   process.exit(1);
 });
+
 // error type 2
 process.on("uncaughtException", (error) => {
   console.log("uncaught exception detected... server shutting down.", error);
@@ -52,6 +58,7 @@ process.on("uncaughtException", (error) => {
 
   process.exit(1);
 });
+
 // error type 3 : when server shutdown beside NET
 process.on("SIGTERM", () => {
   console.log("SIGTERM signal received... server shutting down.");
