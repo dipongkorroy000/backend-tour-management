@@ -4,6 +4,8 @@ import { User } from "../user/user.model";
 import httpStatus from "http-status-codes";
 import bcrypt from "bcryptjs";
 import { createNewAccessTokenWithRefreshToken, createUserTokens } from "../../utils/userTokens";
+import { JwtPayload } from "jsonwebtoken";
+import { envVars } from "../../config/env";
 
 const credentialsLogin = async (payload: Partial<IUser>) => {
   const { email, password } = payload;
@@ -40,6 +42,20 @@ const getNewAccessToken = async (refreshToken: string) => {
   return { accessToken: newAccessToken };
 };
 
+const resetPassword = async (oldPassword: string, newPassword: string, decodedToken: JwtPayload) => {
+  const user = await User.findById(decodedToken.userId);
+
+  const isOldPasswordMatch = await bcrypt.compare(oldPassword, user?.password as string);
+
+  if (!isOldPasswordMatch) {
+    throw new AppError(httpStatus.UNAUTHORIZED, "Old Password does not matched");
+  }
+
+  user.password = await bcrypt.hash(newPassword, Number(envVars.BCRYPT_SALT_ROUND));
+
+  user?.save();
+};
+
 // user -> login - token (email, role, _id) -booking - token / payment cancel - token
 
-export const AuthServices = { credentialsLogin, getNewAccessToken };
+export const AuthServices = { credentialsLogin, getNewAccessToken, resetPassword };
