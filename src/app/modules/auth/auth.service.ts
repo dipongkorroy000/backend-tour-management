@@ -26,7 +26,11 @@ const credentialsLogin = async (payload: Partial<IUser>) => {
   // const accessToken = jwt.sign(jwtPayload, "secret", { expiresIn: "1d" });
   const accessToken = generateToken(jwtPayload, envVars.JWT_ACCESS_SECRET, envVars.JWT_ACCESS_EXPIRES);
 
-  return { accessToken };
+  const refreshToken = generateToken(jwtPayload, envVars.JWT_REFRESH_SECRET, envVars.JWT_REFRESH_EXPIRES);
+
+  const { password: pass, ...rest } = isUserExist.toObject();
+
+  return { accessToken, refreshToken, user: rest };
 };
 
 // user -> login - token (email, role, _id) -booking - token / payment cancel - token
