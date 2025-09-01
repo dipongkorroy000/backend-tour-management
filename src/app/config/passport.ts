@@ -4,6 +4,7 @@ import { envVars } from "./env";
 import { User } from "../modules/user/user.model";
 import { Role } from "../modules/user/user.interface";
 
+
 passport.use(
   new GoogleStrategy(
     {
@@ -11,7 +12,7 @@ passport.use(
       clientSecret: envVars.GOOGLE_CLIENT_SECRET,
       callbackURL: envVars.GOOGLE_CALLBACK_URL,
     },
-    async (accessToken: string, refrestToken: string, profile: Profile, done: VerifyCallback) => {
+    async (accessToken: string, refreshToken: string, profile: Profile, done: VerifyCallback) => {
       try {
         const email = profile.emails?.[0].value;
 
@@ -40,6 +41,19 @@ passport.use(
     }
   )
 );
+
+passport.serializeUser((user: any, done: (err: any, id?: unknown) => void) => {
+  done(null, user._id);
+});
+
+passport.deserializeUser(async (id: string, done: any) => {
+  try {
+    const user = await User.findById(id);
+    done(null, user);
+  } catch (err) {
+    done(err);
+  }
+});
 
 // frontend localhost : 5173 -> localhost:5000/api/v1/auth/google -> passport -> Google OAuth Constant -> gmail login -> successful -> callback url: localhost:5000/api/v1/auth/google/callback
 
