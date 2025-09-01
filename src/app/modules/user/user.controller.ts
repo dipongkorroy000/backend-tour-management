@@ -4,14 +4,6 @@ import { UserServices } from "./user.service";
 import { catchAsync } from "../../utils/catchAsync";
 import { sendResponse } from "../../utils/sendResponse";
 import { JwtPayload } from "jsonwebtoken";
-// import { verifyToken } from "../../utils/jwt";
-// import { envVars } from "../../config/env";
-// import { JwtPayload } from "jsonwebtoken";
-
-// const createUserFunction = async (req: Request, res: Response) => {
-//   const user = await UserServices.createUser(req.body);
-//   res.status(httpStatus.CREATED).json({success: true, message: "User created Successfully", user})
-// }
 
 const createUser = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
   const user = await UserServices.createUser(req.body);
