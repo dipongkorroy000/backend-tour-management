@@ -8,32 +8,40 @@ import { setAuthCookie } from "../../utils/setCookie";
 import { createUserTokens } from "../../utils/userTokens";
 import { envVars } from "../../config/env";
 import { JwtPayload } from "jsonwebtoken";
+import passport from "passport";
 
 const credentialsLogin = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
-  const loginInfo = await AuthServices.credentialsLogin(req.body);
+  // const loginInfo = await AuthServices.credentialsLogin(req.body);
 
-  // res.cookie("accessToken", loginInfo.accessToken, { httpOnly: true, secure: false });
-  // res.cookie("refreshToken", loginInfo.refreshToken, { httpOnly: true, secure: false });
-  setAuthCookie(res, loginInfo);
+  passport.authenticate("local", async (err: any, user: any, info: any) => {
+    if (err) return next(new AppError(401, err));
 
-  sendResponse(res, {
-    success: true,
-    statusCode: httpStatus.OK,
-    message: "Login Successfully",
-    data: loginInfo,
-  });
+    if (!user) return next(new AppError(401, info.message));
+
+    const userTokens = createUserTokens(user);
+
+    // delete user.toObject().password;
+    // alternative
+    const { password: pass, ...rest } = user.toObject();
+
+    setAuthCookie(res, userTokens);
+
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "Login Successfully",
+      data: { accessToken: userTokens.accessToken, refreshToken: userTokens.refreshToken, user: rest },
+    });
+  })(req, res, next);
 });
 
 const getNewAccessToken = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
   const refreshToken = req.cookies.refreshToken;
 
-  if (!refreshToken) {
-    throw new AppError(httpStatus.BAD_REQUEST, "No refresh token received from cookie");
-  }
+  if (!refreshToken) throw new AppError(httpStatus.BAD_REQUEST, "No refresh token received from cookie");
 
   const tokenInfo = await AuthServices.getNewAccessToken(refreshToken as string);
 
-  // res.cookie("accessToken", tokenInfo.accessToken, { httpOnly: true, secure: false });
   setAuthCookie(res, tokenInfo);
 
   sendResponse(res, {
@@ -83,9 +91,7 @@ const googleCallback = catchAsync(async (req: Request, res: Response, next: Next
     redirectTo = redirectTo.slice(1);
   }
 
-  if (!user) {
-    throw new AppError(httpStatus.NOT_FOUND, "User Not Found");
-  }
+  if (!user) throw new AppError(httpStatus.NOT_FOUND, "User Not Found");
 
   const tokenInfo = createUserTokens(user);
 

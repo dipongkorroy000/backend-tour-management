@@ -8,12 +8,11 @@ export const seedSuperAdmin = async () => {
     const isSuperAdminExist = await User.findOne({ email: envVars.SUPER_ADMIN_EMAIL });
 
     if (isSuperAdminExist) {
-        console.log("super admin already exist");
+        // console.log("super admin already exist");
         return;
     }
 
-    console.log("trying to create super admin");
-
+    // console.log("trying to create super admin");
     const hashedPassword = await bcrypt.hash(envVars.SUPER_ADMIN_PASSWORD, Number(envVars.BCRYPT_SALT_ROUND));
 
     const authProvider: IAuthProvider = {
@@ -32,7 +31,7 @@ export const seedSuperAdmin = async () => {
 
     const superAdmin = await User.create(payload);
 
-    console.log("super admin created successfully! \n", superAdmin);
+    // console.log("super admin created successfully! \n", superAdmin);
 
     return superAdmin;
   } catch (err) {

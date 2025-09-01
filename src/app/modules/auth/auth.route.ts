@@ -14,7 +14,7 @@ router.post("/reset-password", checkAuth(...Object.values(Role)), AuthController
 router.get("/google", async (req: Request, res: Response, next: NextFunction) => {
   const redirect = req.query.redirect || "/";
 
-  passport.authenticate("google", { scope: ["profile", "email"], state: redirect as string })(req, res);
+  passport.authenticate("google", { scope: ["profile", "email"], state: redirect as string })(req, res, next);
 });
 
 // api/v1/auth/google/callback?state=/booking

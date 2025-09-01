@@ -19,13 +19,14 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use("/api/v1", router);
 
 app.get("/", (req: Request, res: Response) => {
   res.status(200).json({
     message: "Welcome to Tour Management System Backend",
   });
 });
+
+app.use("/api/v1", router);
 
 app.use(globalErrorHandler);
 
