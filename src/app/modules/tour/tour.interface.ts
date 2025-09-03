@@ -21,4 +21,6 @@ export interface ITour {
   minAge?: number;
   division: Types.ObjectId;
   tourType: Types.ObjectId;
+  departureLocation?: string;
+  arrivalLocation?: string;
 }

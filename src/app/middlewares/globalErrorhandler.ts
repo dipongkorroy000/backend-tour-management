@@ -7,9 +7,9 @@ import { handleValidationError } from "../helpers/handleValidationError";
 import { handleZodError } from "../helpers/handleZodError";
 
 export const globalErrorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
-  if (envVars.NODE_ENV === "development") {
-    console.log(err);
-  }
+  // if (envVars.NODE_ENV === "development") {
+  //   console.log(err);
+  // }
 
   let errorSources: any = [
     // {
