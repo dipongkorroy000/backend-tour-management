@@ -22,7 +22,7 @@ export const createUserZodSchema = z.object({
     .regex(/^(?=.*\d)/, { message: "Password must contain at least 1 number." }),
 
   phone: z
-    .string({ error: "Phone Number must be string" })
+    .string({ invalid_type_error: "Phone Number must be string" })
     .regex(/^(?:\+8801\d{9})$/, {
       message: "Phone Number must be valid for Bangladesh. Format: +8801XXXXXXXXX or 01XXXXXXXXX",
     })
