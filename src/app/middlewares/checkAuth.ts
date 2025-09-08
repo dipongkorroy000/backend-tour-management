@@ -12,14 +12,13 @@ export const checkAuth =
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const accessToken = req.headers.authorization;
-
       if (!accessToken) throw new AppError(httpStatus.BAD_REQUEST, "No Token Received");
 
       //   const verifiedToken = jwt.verify(accessToken, "secret");
       const verifiedToken = verifyToken(accessToken, envVars.JWT_ACCESS_SECRET) as JwtPayload;
+      if (!verifiedToken) throw new AppError(httpStatus.BAD_REQUEST, `Your are not authorized ${verifiedToken}`);
 
       const isUserExist = await User.findOne({ email: verifiedToken.email });
-
       if (!isUserExist) throw new AppError(httpStatus.BAD_REQUEST, "User does not exist");
 
       if (isUserExist.isActive === IsActive.BLOCKED || isUserExist.isActive === IsActive.INACTIVE) {
@@ -27,8 +26,7 @@ export const checkAuth =
       }
 
       if (isUserExist.isDeleted) throw new AppError(httpStatus.BAD_REQUEST, "User is Deleted");
-
-      if (!verifiedToken) throw new AppError(httpStatus.BAD_REQUEST, `Your are not authorized ${verifiedToken}`);
+      if (!isUserExist.isVerified) throw new AppError(httpStatus.BAD_REQUEST, "User is not verified");
 
       if (!authRoles.includes(verifiedToken.role))
         throw new AppError(httpStatus.METHOD_NOT_ALLOWED, "Your are not permitted to view this route!!!");

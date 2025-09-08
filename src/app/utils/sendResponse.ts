@@ -1,9 +1,9 @@
 import { Response } from "express";
 
 interface TMeta {
-  page: number;
-  limit: number;
-  totalPage: number;
+  page?: number;
+  limit?: number;
+  totalPage?: number;
   total: number;
 }
 
@@ -20,7 +20,7 @@ export const sendResponse = <T>(res: Response, data: TResponse<T>) => {
     success: data.success,
     statusCode: data.statusCode,
     message: data.message,
-    meta: data.meta,
     data: data.data,
+    meta: data.meta,
   });
 };
