@@ -1,11 +1,11 @@
 import AppError from "../../errorHelpers/AppError";
-// import { IUser } from "../user/user.interface";
 import { User } from "../user/user.model";
 import httpStatus from "http-status-codes";
 import bcrypt from "bcryptjs";
 import { createNewAccessTokenWithRefreshToken } from "../../utils/userTokens";
 import { JwtPayload } from "jsonwebtoken";
 import { envVars } from "../../config/env";
+import { IAuthProvider } from "../user/user.interface";
 
 // const credentialsLogin = async (payload: Partial<IUser>) => {
 //   const { email, password } = payload;
@@ -38,7 +38,7 @@ const getNewAccessToken = async (refreshToken: string) => {
   return { accessToken: newAccessToken };
 };
 
-const resetPassword = async (oldPassword: string, newPassword: string, decodedToken: JwtPayload) => {
+const changePassword = async (oldPassword: string, newPassword: string, decodedToken: JwtPayload) => {
   const user = await User.findById(decodedToken.userId);
 
   const isOldPasswordMatch = await bcrypt.compare(oldPassword, user?.password as string);
@@ -52,10 +52,43 @@ const resetPassword = async (oldPassword: string, newPassword: string, decodedTo
   user?.save();
 };
 
+const resetPassword = async (oldPassword: string, newPassword: string, decodedToken: JwtPayload) => {
+  return {};
+};
+
+const setPassword = async (userId: string, plainPassword: string) => {
+  const user = await User.findById(userId);
+
+  if (!user) {
+    throw new AppError(404, "User Not Found");
+  }
+
+  if (user.password && user.auths.some((providerObject) => providerObject.provider === "google")) {
+    throw new AppError(
+      httpStatus.BAD_REQUEST,
+      "you have already set you password. Now you can change the password from your profile password update"
+    );
+  }
+
+  const hashPassword = await bcrypt.hash(plainPassword, Number(envVars.BCRYPT_SALT_ROUND));
+  user.password = hashPassword;
+
+  const credentialProvider: IAuthProvider = {
+    provider: "credentials",
+    providerId: user.email,
+  };
+  const auths: IAuthProvider[] = [...user.auths, credentialProvider];
+  user.auths = auths;
+
+  await user.save();
+};
+
 // user -> login - token (email, role, _id) -booking - token / payment cancel - token
 
 export const AuthServices = {
   // credentialsLogin,
   getNewAccessToken,
+  changePassword,
   resetPassword,
+  setPassword,
 };
