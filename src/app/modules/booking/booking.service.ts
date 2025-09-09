@@ -10,12 +10,6 @@ import { SSLService } from "../sslCommerz/sslCommerz.service";
 import { ISSLCommerz } from "../sslCommerz/sslCommerz.interface";
 import { getTransactionId } from "../../utils/getTransactionId";
 
-/**
- * Duplicate DB Collections / replica
- *
- * Relica DB -> [ Create Booking -> Create Payment ->  Update Booking -> Error] -> Real DB
- */
-
 const createBooking = async (payload: Partial<IBooking>, userId: string) => {
   const session = await Booking.startSession();
   session.startTransaction(); // transaction start
@@ -43,8 +37,6 @@ const createBooking = async (payload: Partial<IBooking>, userId: string) => {
       ],
       { session }
     );
-
-    // throw new Error("Some fake Error!");
 
     const amount = Number(tour.costFrom) * Number(payload.guestCount as number);
 
@@ -86,7 +78,7 @@ const createBooking = async (payload: Partial<IBooking>, userId: string) => {
 
     const sslPayment: ISSLCommerz = await SSLService.sslPaymentInit(sslPayload);
 
-    console.log(sslPayment);
+    // console.log(sslPayment);
 
     await session.commitTransaction(); // transaction
     session.endSession();

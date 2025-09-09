@@ -9,7 +9,7 @@ const successPayment = catchAsync(async (req: Request, res: Response) => {
 
   const result = await PaymentService.successPayment(query as Record<string, string>);
 
-  if (result.success) {
+  if (result?.success) {
     res.redirect(
       `${envVars.SSL.SSL_SUCCESS_FRONTEND_URL}?transactionId=${query.transactionId}&message=${result.message}&amount=${query.amount}&status=${query.status}`
     );
@@ -48,4 +48,19 @@ const initPayment = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, { statusCode: 201, success: true, message: "Payment done successfully", data: result });
 });
 
-export const PaymentController = { successPayment, failPayment, cancelPayment, initPayment };
+const getInvoiceDownloadUrl = catchAsync(
+    async (req: Request, res: Response) => {
+        const { paymentId } = req.params;
+        const result = await PaymentService.getInvoiceDownloadUrl(paymentId);
+        sendResponse(res, {
+            statusCode: 200,
+            success: true,
+            message: "Invoice download URL retrieved successfully",
+            data: result,
+        });
+    }
+);
+
+
+
+export const PaymentController = { successPayment, failPayment, cancelPayment, initPayment, getInvoiceDownloadUrl };

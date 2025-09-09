@@ -1,4 +1,5 @@
 export interface ISSLCommerz {
+  GatewayPageURL: any;
   amount: number;
   transactionId: string;
   name: string;
