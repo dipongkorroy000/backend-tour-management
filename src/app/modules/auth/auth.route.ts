@@ -12,8 +12,11 @@ router.post("/refresh-token", AuthControllers.getNewAccessToken);
 router.post("/logout", AuthControllers.logout);
 
 router.post("/change-password", checkAuth(...Object.values(Role)), AuthControllers.changePassword);
-router.post("/reset-password", checkAuth(...Object.values(Role)), AuthControllers.resetPassword);
 router.post("/set-password", checkAuth(...Object.values(Role)), AuthControllers.setPassword);
+
+// when user forget password then call these api
+router.post("/forgot-password", AuthControllers.forgotPassword);
+router.post("/reset-password", checkAuth(...Object.values(Role)), AuthControllers.resetPassword);
 
 // google login ---------
 // login -> successful google login -> frontend
@@ -30,6 +33,8 @@ router.get(
   }),
   AuthControllers.googleCallback
 );
+
+// frontend -> forget-password -> email -> user status check -> token short token(valid for 10 min) -> email -> token -> frontend link http://localhost:5173/reset-password?email=example@gmail.com&token=token -> frontend ay query theke user & email & token extract koray anbay -> new password user theke nibe -> /reset-password -> authorization = token -> newPassword -> hash password -> save user password
 
 
 
