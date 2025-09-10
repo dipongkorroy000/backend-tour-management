@@ -56,9 +56,6 @@ const successPayment = async (query: Record<string, string>) => {
 
     if (!cloudinaryResult) throw new AppError(401, "Error uploading pdf");
 
-    // console.log("pdf info", updatedPayment._id , cloudinaryResult.secure_url);
-
-    // not working this line
     await Payment.findByIdAndUpdate(updatedPayment._id, { invoiceUrl: cloudinaryResult.secure_url }, { runValidators: true, session });
 
     await sendEmail({
