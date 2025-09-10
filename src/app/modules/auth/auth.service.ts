@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs";
 import { createNewAccessTokenWithRefreshToken } from "../../utils/userTokens";
 import { JwtPayload } from "jsonwebtoken";
 import { envVars } from "../../config/env";
-import { IAuthProvider, IsActive, Role } from "../user/user.interface";
+import { IAuthProvider, IsActive } from "../user/user.interface";
 import jwt from "jsonwebtoken";
 import { sendEmail } from "../../utils/sendEmail";
 
@@ -120,6 +120,7 @@ const forgotPassword = async (email: string) => {
   // -----
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const resetPassword = async (payload: Record<string, any>, decodedToken: JwtPayload) => {
   if (payload.id !== decodedToken.userId) throw new AppError(401, "You can not reset your password");
 

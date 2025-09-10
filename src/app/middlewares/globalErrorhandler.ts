@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextFunction, Request, Response } from "express";
 import { envVars } from "../config/env";
 import AppError from "../errorHelpers/AppError";
@@ -7,6 +8,7 @@ import { handleValidationError } from "../helpers/handleValidationError";
 import { handleZodError } from "../helpers/handleZodError";
 import { deleteImageFromCLoudinary } from "../config/cloudinary.config";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const globalErrorHandler = async (err: any, req: Request, res: Response, next: NextFunction) => {
   // if (envVars.NODE_ENV === "development") {
   //   console.log(err);

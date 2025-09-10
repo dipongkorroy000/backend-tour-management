@@ -6,6 +6,7 @@ export const handleValidationError = (err: mongoose.Error.ValidationError): TGen
 
   const errorsArray = Object.values(err.errors);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   errorsArray.forEach((errorObj: any) => errorSources.push({ path: errorObj.path, message: errorObj.message }));
 
   return {

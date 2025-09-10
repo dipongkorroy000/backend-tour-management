@@ -12,4 +12,7 @@ router.post("/cancel", PaymentController.cancelPayment);
 
 router.get("/invoice/:paymentId", checkAuth(...Object.values(Role)), PaymentController.getInvoiceDownloadUrl);
 
+// sslcommerz - call this route
+router.post("/validate-payment", PaymentController.validatePayment);
+
 export const PaymentRoutes = router;

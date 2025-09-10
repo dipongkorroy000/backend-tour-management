@@ -1,5 +1,6 @@
 export interface ISSLCommerz {
-  GatewayPageURL: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  GatewayPageURL?: any;
   amount: number;
   transactionId: string;
   name: string;

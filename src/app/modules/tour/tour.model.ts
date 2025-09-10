@@ -1,10 +1,7 @@
 import { model, Schema } from "mongoose";
 import { ITour, ITourType } from "./tour.interface";
 
-const tourTypeSchema = new Schema<ITourType>(
-  { name: { type: String, required: true, unique: true } },
-  { timestamps: true }
-);
+const tourTypeSchema = new Schema<ITourType>({ name: { type: String, required: true, unique: true } }, { timestamps: true });
 
 export const TourType = model<ITourType>("TourType", tourTypeSchema);
 
@@ -15,7 +12,7 @@ const tourSchema = new Schema<ITour>(
     description: { type: String },
     images: { type: [String], default: [] },
     location: { type: String },
-    costFrom: { type: Number },
+    costFrom: { type: Number, required: true },
     startDate: { type: Date },
     endDate: { type: Date },
     included: { type: [String], default: [] },

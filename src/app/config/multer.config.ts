@@ -10,7 +10,8 @@ const storage = new CloudinaryStorage({
         .toLowerCase()
         .replace(/\s+/g, "-") // empty space (" ") -> (-)
         .replace(/\./g, "-") // (.) -> (-)
-        .replace(/[^a-z0-9\-\.]/g, ""); // non alpha numeric - !@#$
+        .replace(/[^a-z0-9\-.]/g, ""); // non alpha numeric - !@#$ // ago next replace
+        // .replace(/[^a-z0-9\-\.]/g, ""); // non alpha numeric - !@#$
 
       const extension = file.originalname.split(".").pop();
 

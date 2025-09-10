@@ -9,6 +9,7 @@ const paymentSchema = new Schema<IPayment>(
     amount: { type: Number, required: true },
     paymentGatewayData: { type: Schema.Types.Mixed },
     invoice: { type: String },
+    invoiceUrl: { type: String },
   },
   {
     timestamps: true,
