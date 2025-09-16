@@ -1,0 +1,1597 @@
+{
+	"info": {
+		"_postman_id": "97b16def-1638-4a84-b238-5b11cf7cb702",
+		"name": "l2-assignment-005",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43391289"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "user register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"rakib\",\r\n    \"email\": \"rakib11@gmail.com\",\r\n    \"password\": \"abAB12!**\",\r\n    \"phone\": \"+8801711220397\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"dip000@gmail.com\",\r\n    \"password\": \"abAB12!*\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMe",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGMzYWUxNTI0YjdlMzMzZTYxOTgyNTYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMDAwQGdtYWlsLmNvbSIsInJvbGUiOiJTRU5ERVIiLCJpYXQiOjE3NTc3NDMwMzYsImV4cCI6MTc1NzgyOTQzNn0.y07ojW2deo5VmQakzBSc2E41eBJ6LbZwCCm87MSH8Zg; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGMzYWUxNTI0YjdlMzMzZTYxOTgyNTYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMDAwQGdtYWlsLmNvbSIsInJvbGUiOiJTRU5ERVIiLCJpYXQiOjE3NTc3NDMwMzYsImV4cCI6MTc2MDMzNTAzNn0.Li9aTNCig62PUE8HO6l_q4971vl3-QlZiJf9yBNQd_I",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NTM1Y2ZmYzI3MWRhMjRhODA5ZWYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMEBnbWFpbC5jb20iLCJyb2xlIjoiU0VOREVSIiwiaWF0IjoxNzU3NzYyNDM4LCJleHAiOjE3NTc4NDg4Mzh9.NBYckfW7SwkvH5FmN-246_VQMCVxDdghu_Y9NCpCnJM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/user?email=dipongkorroy000@gmail.com&Authorization=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"user"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "dipongkorroy000@gmail.com"
+								},
+								{
+									"key": "Authorization",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user address",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NjI3OTFkNDMzMGU2MTc2MWFmZDYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMDAwQGdtYWlsLmNvbSIsInJvbGUiOiJTRU5ERVIiLCJpYXQiOjE3NTc3NjY1NjYsImV4cCI6MTc1Nzg1Mjk2Nn0.dqCr56xqzfu_L6xIYolkFhYYOjr-TWBI90a_PDx0HYo; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NjI3OTFkNDMzMGU2MTc2MWFmZDYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMDAwQGdtYWlsLmNvbSIsInJvbGUiOiJTRU5ERVIiLCJpYXQiOjE3NTc3NjY1NjYsImV4cCI6MTc2MDM1ODU2Nn0.DjeB4Emzwjw0eeQcFRuG0VnbC559pRU3J5MVGI2cgZI",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NjI3OTFkNDMzMGU2MTc2MWFmZDYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMDAwQGdtYWlsLmNvbSIsInJvbGUiOiJTRU5ERVIiLCJpYXQiOjE3NTc3NjY1NjYsImV4cCI6MTc1Nzg1Mjk2Nn0.dqCr56xqzfu_L6xIYolkFhYYOjr-TWBI90a_PDx0HYo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"phone\": \"01799760840\",\r\n     \"address\": \"Dinajpur\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/user?email=dipongkorroy00000@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"user"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "dipongkorroy00000@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "parcel",
+			"item": [
+				{
+					"name": "otp for cancel parcel",
+					"item": [
+						{
+							"name": "send otp",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"trackingId\": \"tran_1757767018154_869\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/v1/otp/send",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"v1",
+										"otp",
+										"send"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "verify otp & cancel parcel",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"trackingId\": \"tran_1757769941556_713\",\r\n    \"otp\": \"268620\",\r\n    \"feedBack\": \"very late delivery\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/v1/otp/verify",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"v1",
+										"otp",
+										"verify"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "myParcels",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NjI3OTFkNDMzMGU2MTc2MWFmZDYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMDAwQGdtYWlsLmNvbSIsInJvbGUiOiJTRU5ERVIiLCJpYXQiOjE3NTc4Mjc5NTgsImV4cCI6MTc1NzkxNDM1OH0.i18gb6ezPVkf3jIRF0rFsneKmDGgZnWDe7hv_Yl6quY; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NjI3OTFkNDMzMGU2MTc2MWFmZDYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMDAwQGdtYWlsLmNvbSIsInJvbGUiOiJTRU5ERVIiLCJpYXQiOjE3NTc4Mjc5NTgsImV4cCI6MTc2MDQxOTk1OH0.ZP7xQpauP9x5j1Qop4PZ6Sj_mVNXobgFCbXSdpiXKxU",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NjI3OTFkNDMzMGU2MTc2MWFmZDYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMDAwQGdtYWlsLmNvbSIsInJvbGUiOiJTRU5ERVIiLCJpYXQiOjE3NTc4Mjc5NTgsImV4cCI6MTc1NzkxNDM1OH0.i18gb6ezPVkf3jIRF0rFsneKmDGgZnWDe7hv_Yl6quY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/parcel/myparcels/68c562791d4330e61761afd6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"parcel",
+								"myparcels",
+								"68c562791d4330e61761afd6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "receiver parcels",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NzBhYmM3ZDJjYzVjMjE1OGYwOTEiLCJlbWFpbCI6InJha2liMUBnbWFpbC5jb20iLCJyb2xlIjoiUkVDRUlWRVIiLCJpYXQiOjE3NTc3ODkxMjksImV4cCI6MTc1Nzg3NTUyOX0.6fqhE-kEvO0MOkeRdpkVv_WHG7ZS5NVKcsi0i3bND7I; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NzBhYmM3ZDJjYzVjMjE1OGYwOTEiLCJlbWFpbCI6InJha2liMUBnbWFpbC5jb20iLCJyb2xlIjoiUkVDRUlWRVIiLCJpYXQiOjE3NTc3ODkxMjksImV4cCI6MTc2MDM4MTEyOX0.h5hhon1lhUtuhNFybJwb3X-czMBf21oZN13zrY651qA",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NzBhYmM3ZDJjYzVjMjE1OGYwOTEiLCJlbWFpbCI6InJha2liMUBnbWFpbC5jb20iLCJyb2xlIjoiUkVDRUlWRVIiLCJpYXQiOjE3NTc3ODkxMjksImV4cCI6MTc1Nzg3NTUyOX0.6fqhE-kEvO0MOkeRdpkVv_WHG7ZS5NVKcsi0i3bND7I",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/parcel/receiver",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"parcel",
+								"receiver"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "parcel delivery request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NzBhYmM3ZDJjYzVjMjE1OGYwOTEiLCJlbWFpbCI6InJha2liMUBnbWFpbC5jb20iLCJyb2xlIjoiUkVDRUlWRVIiLCJpYXQiOjE3NTc4MzMwMTAsImV4cCI6MTc1NzkxOTQxMH0.mCjZ8wJdcBtP-FqvfTuYhSHU4pnxo3uAAFcZJax4URY; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NzBhYmM3ZDJjYzVjMjE1OGYwOTEiLCJlbWFpbCI6InJha2liMUBnbWFpbC5jb20iLCJyb2xlIjoiUkVDRUlWRVIiLCJpYXQiOjE3NTc4MzMwMTAsImV4cCI6MTc2MDQyNTAxMH0.Q_82LQ7ToPuUtKdNrboSfdA1n_lkQqql9cXJklggz_0",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM2NzNiMWJkNTZiNWQzZGY2ZWZiZTYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMDAwQGdtYWlsLmNvbSIsInJvbGUiOiJTRU5ERVIiLCJpYXQiOjE3NTc4MzYyMzksImV4cCI6MTc1NzkyMjYzOX0.v8Nh8VG2S7eipr_2R8ceaCkWYaUt7z5BYZ4iNUW7MR8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"senderId\": \"68c673b1bd56b5d3df6efbe6\",\r\n    \"title\": \"Book\",\r\n    \"type\": \"Document\",\r\n    \"weight\": 7,\r\n    \"division\": \"Rangpur\",\r\n    \"city\": \"dinajpur\",\r\n    \"area\": \"jonglipur\",\r\n    \"receiverNumber\": \"01711111111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/parcel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"parcel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "anyOne get by trackingId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NjI3OTFkNDMzMGU2MTc2MWFmZDYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMDAwQGdtYWlsLmNvbSIsInJvbGUiOiJTRU5ERVIiLCJpYXQiOjE3NTc4Mjc5NTgsImV4cCI6MTc1NzkxNDM1OH0.i18gb6ezPVkf3jIRF0rFsneKmDGgZnWDe7hv_Yl6quY; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NjI3OTFkNDMzMGU2MTc2MWFmZDYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMDAwQGdtYWlsLmNvbSIsInJvbGUiOiJTRU5ERVIiLCJpYXQiOjE3NTc4Mjc5NTgsImV4cCI6MTc2MDQxOTk1OH0.ZP7xQpauP9x5j1Qop4PZ6Sj_mVNXobgFCbXSdpiXKxU",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NjI3OTFkNDMzMGU2MTc2MWFmZDYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMDAwQGdtYWlsLmNvbSIsInJvbGUiOiJTRU5ERVIiLCJpYXQiOjE3NTc4Mjc5NTgsImV4cCI6MTc1NzkxNDM1OH0.i18gb6ezPVkf3jIRF0rFsneKmDGgZnWDe7hv_Yl6quY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/parcel/anyOne/tran_1757828003512_480",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"parcel",
+								"anyOne",
+								"tran_1757828003512_480"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "next time payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NjI3OTFkNDMzMGU2MTc2MWFmZDYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMDAwQGdtYWlsLmNvbSIsInJvbGUiOiJTRU5ERVIiLCJpYXQiOjE3NTc3ODQzMTQsImV4cCI6MTc1Nzg3MDcxNH0.Hco0uukZjcoM5yovHHUWL3NaktcvANif2Nz1dvnCPmQ; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NjI3OTFkNDMzMGU2MTc2MWFmZDYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMDAwQGdtYWlsLmNvbSIsInJvbGUiOiJTRU5ERVIiLCJpYXQiOjE3NTc3ODQzMTQsImV4cCI6MTc2MDM3NjMxNH0.FZjMvrBPsFQJkJJtkYS20pRQy1QH7BYITgt6qTf9Nrs",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NjI3OTFkNDMzMGU2MTc2MWFmZDYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMDAwQGdtYWlsLmNvbSIsInJvbGUiOiJTRU5ERVIiLCJpYXQiOjE3NTc3ODQzMTQsImV4cCI6MTc1Nzg3MDcxNH0.Hco0uukZjcoM5yovHHUWL3NaktcvANif2Nz1dvnCPmQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"senderId\": \"68c562791d4330e61761afd6\",\r\n    \"title\": \"Book\",\r\n    \"type\": \"Document\",\r\n    \"weight\": 7,\r\n    \"division\": \"Rangpur\",\r\n    \"city\": \"dinajpur\",\r\n    \"area\": \"jonglipur\",\r\n    \"receiverId\": \"68c570abc7d2cc5c2158f091\",\r\n    \"receiverNumber\": \"01711111111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/payment/init-payment/tran_1757828003512_480",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"payment",
+								"init-payment",
+								"tran_1757828003512_480"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "parcel delivery status update by admin",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NjgyYzRlMjdiY2VkZDM4ZjRiNzYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTc4Mjg0NjIsImV4cCI6MTc1NzkxNDg2Mn0.DnZBILBUkpd5HVqfoy7RjZ2RXufvTHG6Dcc3KfrTDKY; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NjgyYzRlMjdiY2VkZDM4ZjRiNzYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTc4Mjg0NjIsImV4cCI6MTc2MDQyMDQ2Mn0.G6dviqO3hhuZKYPG7SKbOQjWGJiP6CpBpLbUrA93FZ8",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NjgyYzRlMjdiY2VkZDM4ZjRiNzYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTc4Mjg0NjIsImV4cCI6MTc1NzkxNDg2Mn0.DnZBILBUkpd5HVqfoy7RjZ2RXufvTHG6Dcc3KfrTDKY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"APPROVED\",\r\n    \"location\": \"Dhaka Mirpur\",\r\n    \"note\": \"Parcel on our Truck Dhaka\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/parcel/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"parcel",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "receive parcel",
+			"item": [
+				{
+					"name": "confirm parcel by receiver phone number",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"trackingId\": \"tran_1757767018154_869\",\r\n    \"phone\": \"01711220397\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/parcel/confirm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"parcel",
+								"confirm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "confirm parcel by receiver email",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NzBhYmM3ZDJjYzVjMjE1OGYwOTEiLCJlbWFpbCI6InJha2liMUBnbWFpbC5jb20iLCJyb2xlIjoiU0VOREVSIiwiaWF0IjoxNzU3NzcwMDg0LCJleHAiOjE3NTc4NTY0ODR9.68bMVVytypRxhrB6DPgsVT1qSt0P15qm6-Pf2MLhv8Y; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NzBhYmM3ZDJjYzVjMjE1OGYwOTEiLCJlbWFpbCI6InJha2liMUBnbWFpbC5jb20iLCJyb2xlIjoiU0VOREVSIiwiaWF0IjoxNzU3NzcwMDg0LCJleHAiOjE3NjAzNjIwODR9.rAd32B0Nk4o-Td3rrc1tNgZVA_EsK_f3wwn8Z6pEXsU",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NzBhYmM3ZDJjYzVjMjE1OGYwOTEiLCJlbWFpbCI6InJha2liMUBnbWFpbC5jb20iLCJyb2xlIjoiU0VOREVSIiwiaWF0IjoxNzU3NzcwMDg0LCJleHAiOjE3NTc4NTY0ODR9.68bMVVytypRxhrB6DPgsVT1qSt0P15qm6-Pf2MLhv8Y",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"rakib1@gmail.com\",\r\n    \"trackingId\": \"tran_1757770944343_123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/parcel/confirm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"parcel",
+								"confirm"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "get users by admin",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM3MTFjNmIxMzcyOGYxNTczMjk3YWYiLCJlbWFpbCI6ImRpcDAwMEBnbWFpbC5jb20iLCJyb2xlIjoiU1VQRVJfQURNSU4iLCJpYXQiOjE3NTc4NzY4NTIsImV4cCI6MTc1Nzk2MzI1Mn0.7Apyt1TlxMjiGOqRFusI_Hm4U4r8E1NqbGGwZsnuLO4; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM3MTFjNmIxMzcyOGYxNTczMjk3YWYiLCJlbWFpbCI6ImRpcDAwMEBnbWFpbC5jb20iLCJyb2xlIjoiU1VQRVJfQURNSU4iLCJpYXQiOjE3NTc4NzY4NTIsImV4cCI6MTc2MDQ2ODg1Mn0.lXUSgOVTAkE8OI1ZQ0sHC0GPZHIslGMyYCL75OStELY",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM3MTFjNmIxMzcyOGYxNTczMjk3YWYiLCJlbWFpbCI6ImRpcDAwMEBnbWFpbC5jb20iLCJyb2xlIjoiU1VQRVJfQURNSU4iLCJpYXQiOjE3NTc4NzY4NTIsImV4cCI6MTc1Nzk2MzI1Mn0.7Apyt1TlxMjiGOqRFusI_Hm4U4r8E1NqbGGwZsnuLO4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/user/all-users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"all-users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update userRole by admin|superAdmin",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM3MTFjNmIxMzcyOGYxNTczMjk3YWYiLCJlbWFpbCI6ImRpcDAwMEBnbWFpbC5jb20iLCJyb2xlIjoiU1VQRVJfQURNSU4iLCJpYXQiOjE3NTc4NzY4NTIsImV4cCI6MTc1Nzk2MzI1Mn0.7Apyt1TlxMjiGOqRFusI_Hm4U4r8E1NqbGGwZsnuLO4; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM3MTFjNmIxMzcyOGYxNTczMjk3YWYiLCJlbWFpbCI6ImRpcDAwMEBnbWFpbC5jb20iLCJyb2xlIjoiU1VQRVJfQURNSU4iLCJpYXQiOjE3NTc4NzY4NTIsImV4cCI6MTc2MDQ2ODg1Mn0.lXUSgOVTAkE8OI1ZQ0sHC0GPZHIslGMyYCL75OStELY",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM3MTFjNmIxMzcyOGYxNTczMjk3YWYiLCJlbWFpbCI6ImRpcDAwMEBnbWFpbC5jb20iLCJyb2xlIjoiU1VQRVJfQURNSU4iLCJpYXQiOjE3NTc4NzY4NTIsImV4cCI6MTc1Nzk2MzI1Mn0.7Apyt1TlxMjiGOqRFusI_Hm4U4r8E1NqbGGwZsnuLO4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"rakib11@gmail.com\",\r\n    \"role\": \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/user/updateUserRole",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"updateUserRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get parcels by admin",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NjgyYzRlMjdiY2VkZDM4ZjRiNzYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTc4Mjg0NjIsImV4cCI6MTc1NzkxNDg2Mn0.DnZBILBUkpd5HVqfoy7RjZ2RXufvTHG6Dcc3KfrTDKY; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NjgyYzRlMjdiY2VkZDM4ZjRiNzYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTc4Mjg0NjIsImV4cCI6MTc2MDQyMDQ2Mn0.G6dviqO3hhuZKYPG7SKbOQjWGJiP6CpBpLbUrA93FZ8",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM1NjgyYzRlMjdiY2VkZDM4ZjRiNzYiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTc4Mjk4MjEsImV4cCI6MTc1NzkxNjIyMX0.-T0dH--zV2UsN2lNsbO14LmnYmfJ1VK69mOna5u5eGc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/parcel/all-parcel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"parcel",
+								"all-parcel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users stats",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM3MTFjNmIxMzcyOGYxNTczMjk3YWYiLCJlbWFpbCI6ImRpcDAwMEBnbWFpbC5jb20iLCJyb2xlIjoiU1VQRVJfQURNSU4iLCJpYXQiOjE3NTc4NzY4NTIsImV4cCI6MTc1Nzk2MzI1Mn0.7Apyt1TlxMjiGOqRFusI_Hm4U4r8E1NqbGGwZsnuLO4; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM3MTFjNmIxMzcyOGYxNTczMjk3YWYiLCJlbWFpbCI6ImRpcDAwMEBnbWFpbC5jb20iLCJyb2xlIjoiU1VQRVJfQURNSU4iLCJpYXQiOjE3NTc4NzY4NTIsImV4cCI6MTc2MDQ2ODg1Mn0.lXUSgOVTAkE8OI1ZQ0sHC0GPZHIslGMyYCL75OStELY",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGM3MTFjNmIxMzcyOGYxNTczMjk3YWYiLCJlbWFpbCI6ImRpcDAwMEBnbWFpbC5jb20iLCJyb2xlIjoiU1VQRVJfQURNSU4iLCJpYXQiOjE3NTc4NzY4NTIsImV4cCI6MTc1Nzk2MzI1Mn0.7Apyt1TlxMjiGOqRFusI_Hm4U4r8E1NqbGGwZsnuLO4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/stats/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"stats",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "parcel stats",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGMzYzg2NTBkOTI2ZTg1ODk1YTE4NmUiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTc3MzQzNjQsImV4cCI6MTc1NzgyMDc2NH0.hiz7rEiMluCbRIASonpazOhw7y2iSwdMtEd5pdSxurw; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGMzYzg2NTBkOTI2ZTg1ODk1YTE4NmUiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTc3MzQzNjQsImV4cCI6MTc2MDMyNjM2NH0.kg54syB6Inu2t0hduwlqCMpazOIXigYJrIZ1j_Wep-Q",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGMzYzg2NTBkOTI2ZTg1ODk1YTE4NmUiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTc3MzQzNjQsImV4cCI6MTc1NzgyMDc2NH0.hiz7rEiMluCbRIASonpazOhw7y2iSwdMtEd5pdSxurw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/stats/parcel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"stats",
+								"parcel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "payment stats",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGMzYzg2NTBkOTI2ZTg1ODk1YTE4NmUiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTc3MzQzNjQsImV4cCI6MTc1NzgyMDc2NH0.hiz7rEiMluCbRIASonpazOhw7y2iSwdMtEd5pdSxurw; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGMzYzg2NTBkOTI2ZTg1ODk1YTE4NmUiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTc3MzQzNjQsImV4cCI6MTc2MDMyNjM2NH0.kg54syB6Inu2t0hduwlqCMpazOIXigYJrIZ1j_Wep-Q",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGMzYzg2NTBkOTI2ZTg1ODk1YTE4NmUiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTc3MzQzNjQsImV4cCI6MTc1NzgyMDc2NH0.hiz7rEiMluCbRIASonpazOhw7y2iSwdMtEd5pdSxurw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/stats/payment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"stats",
+								"payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete parcel",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGMzYzg2NTBkOTI2ZTg1ODk1YTE4NmUiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTc3MzQzNjQsImV4cCI6MTc1NzgyMDc2NH0.hiz7rEiMluCbRIASonpazOhw7y2iSwdMtEd5pdSxurw; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGMzYzg2NTBkOTI2ZTg1ODk1YTE4NmUiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTc3MzQzNjQsImV4cCI6MTc2MDMyNjM2NH0.kg54syB6Inu2t0hduwlqCMpazOIXigYJrIZ1j_Wep-Q",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGMzYzg2NTBkOTI2ZTg1ODk1YTE4NmUiLCJlbWFpbCI6ImRpcG9uZ2tvcnJveTAwMEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTc3MzQzNjQsImV4cCI6MTc1NzgyMDc2NH0.hiz7rEiMluCbRIASonpazOhw7y2iSwdMtEd5pdSxurw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/parcel/tran_1757656625458_180",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"parcel",
+								"tran_1757656625458_180"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
