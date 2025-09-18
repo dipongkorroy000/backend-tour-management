@@ -23,7 +23,7 @@ const createUser = (0, catchAsync_1.catchAsync)((req, res, next) => __awaiter(vo
         success: true,
         statusCode: http_status_codes_1.default.CREATED,
         message: "User Created Successfully",
-        data: user,
+        data: { name: user.name, role: user.role, email: user.email, isActive: user.isActive },
     });
 }));
 const updateUser = (0, catchAsync_1.catchAsync)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {

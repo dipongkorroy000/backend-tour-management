@@ -25,11 +25,11 @@ router.get("/google", async (req: Request, res: Response, next: NextFunction) =>
   passport.authenticate("google", { scope: ["profile", "email"], state: redirect as string })(req, res, next);
 });
 
-// api/v1/auth/google/callback?state=/booking
+// api/v1/auth/google/callback?state=/booking 
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    failureRedirect: `${envVars.FRONTEND_URL}/login?error=There is some issues with your account. Please contact with our support team!`,
+    failureRedirect: `${envVars.FRONTEND_URL}/login?`,
   }),
   AuthControllers.googleCallback
 );
