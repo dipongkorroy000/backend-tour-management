@@ -32,8 +32,8 @@ const getAllDivisions = catchAsync(async (req: Request, res: Response) => {
   });
 });
 const getSingleDivision = catchAsync(async (req: Request, res: Response) => {
-  const slug = req.params.slug;
-  const result = await DivisionService.getSingleDivision(slug);
+  const id = req.params.id;
+  const result = await DivisionService.getSingleDivision(id);
   sendResponse(res, {
     statusCode: 200,
     success: true,

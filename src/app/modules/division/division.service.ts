@@ -31,8 +31,8 @@ const getAllDivisions = async () => {
     },
   };
 };
-const getSingleDivision = async (slug: string) => {
-  const division = await Division.findOne({ slug });
+const getSingleDivision = async (id: string) => {
+  const division = await Division.findById(id);
   return {
     data: division,
   };
