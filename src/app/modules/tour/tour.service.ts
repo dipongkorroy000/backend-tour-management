@@ -142,7 +142,7 @@ const getAllTourTypes = async (query: Record<string, string>) => {
 
 const getSingleTourType = async (id: string) => {
   const tourType = await TourType.findById(id);
-  return { data: tourType };
+  return tourType;
 };
 
 const updateTourType = async (id: string, payload: ITourType) => {
