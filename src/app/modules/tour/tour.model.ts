@@ -26,7 +26,7 @@ const tourSchema = new Schema<ITour>(
     departureLocation: { type: String },
     arrivalLocation: { type: String },
   },
-  { timestamps: true }
+  { timestamps: true, versionKey: false }
 );
 
 tourSchema.pre("save", async function (next) {
